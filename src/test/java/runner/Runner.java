@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json", "rerun:target/rerun.txt"},
         features = "src\\test\\resources\\features",
         glue = "steps",
-        dryRun = false,   //dryRun = true -> only unimplemented stets run
-        tags = "@api"
+        dryRun = false,   //dryRun = true -> only unimplemented steps run
+        tags = "@TC-0001"
 )
 public class Runner {
 
