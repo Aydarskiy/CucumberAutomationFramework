@@ -36,7 +36,7 @@ Contributions to this framework are welcome! Feel free to submit pull requests f
 Disclaimer:
 This project is intended for demonstration purposes only and is not associated with Magento or any affiliated entities. The use of this framework should comply with all relevant terms and conditions of Magento's services.
 
-Thank you for checking out my project nad Happy testing!
+Thank you for checking out my project and Happy testing!
 
 
 
