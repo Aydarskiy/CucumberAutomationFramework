@@ -36,6 +36,18 @@ public class MagentoCreateAccountPage {
     @FindBy (xpath = "//button[@class='action submit primary']")
     public WebElement  createAnAccountBtn;
 
+    @FindBy (id = "firstname-error" )
+    public WebElement firstNameErrorMsg;
+
+    @FindBy (id = "lastname-error" )
+    public WebElement lastNameErrorMsg;
+
+
+    @FindBy (id = "email_address-error" )
+    public WebElement emailErrorMsg;
+
+
+
 
 
 

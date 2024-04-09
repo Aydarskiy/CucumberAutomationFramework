@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.MagentoCreateAccountPage;
 import pages.MagentoMainPage;
@@ -65,5 +66,73 @@ public class MagentoCreateAccountSteps {
         System.out.println(expectedFullNameAndEmail);
         Assert.assertEquals(expectedFullNameAndEmail, actualFullNameAndEmail);
     }
+
+    @When("user creates account with data and skips first name field")
+    public void user_creates_account_with_data_and_skips_first_name_field(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+        userData = dataTable.asMap(String.class, Object.class);
+        magentoCreateAccountPage.lastNameInputField.sendKeys(userData.get("Last Name").toString());
+        randomEmail = BrowserUtils.getRandomEmail();
+        System.out.println(randomEmail);
+        magentoCreateAccountPage.emailAddressInputField.sendKeys(randomEmail);
+        magentoCreateAccountPage.passwordInputField.sendKeys(userData.get("Password").toString());
+        magentoCreateAccountPage.passwordConfirmationInputField.sendKeys(userData.get("Password").toString());
+
+        magentoCreateAccountPage.createAnAccountBtn.click();
+
+        Thread.sleep(3000);
+
+    }
+    @Then("user validates {string} error message under first name field.")
+    public void user_validates_error_message_under_first_name_field(String expectedErrorMsg) {
+        String actualErrorMsg = magentoCreateAccountPage.firstNameErrorMsg.getText();
+        Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
+    }
+
+    @When("user creates account with data and skips last name field")
+    public void user_creates_account_with_data_and_skips_last_name_field(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+
+        userData = dataTable.asMap(String.class, Object.class);
+        magentoCreateAccountPage.firstNameInputField.sendKeys(userData.get("First Name").toString());
+        randomEmail = BrowserUtils.getRandomEmail();
+        System.out.println(randomEmail);
+        magentoCreateAccountPage.emailAddressInputField.sendKeys(randomEmail);
+        magentoCreateAccountPage.passwordInputField.sendKeys(userData.get("Password").toString());
+        magentoCreateAccountPage.passwordConfirmationInputField.sendKeys(userData.get("Password").toString());
+
+        magentoCreateAccountPage.createAnAccountBtn.click();
+
+        Thread.sleep(3000);
+
+    }
+    @Then("user validates {string} error message under last name field.")
+    public void user_validates_error_message_under_last_name_field(String expectedErrorMsg) {
+        String actualErrorMsg = magentoCreateAccountPage.lastNameErrorMsg.getText();
+        Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
+
+    }
+
+
+
+    @When("user creates account with data and skips email field")
+    public void user_creates_account_with_data_and_skips_email_field(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+        userData = dataTable.asMap(String.class, Object.class);
+        magentoCreateAccountPage.firstNameInputField.sendKeys(userData.get("First Name").toString());
+        magentoCreateAccountPage.lastNameInputField.sendKeys(userData.get("Last Name").toString());
+        magentoCreateAccountPage.passwordInputField.sendKeys(userData.get("Password").toString());
+        magentoCreateAccountPage.passwordConfirmationInputField.sendKeys(userData.get("Password").toString());
+
+        magentoCreateAccountPage.createAnAccountBtn.click();
+
+        Thread.sleep(3000);
+
+    }
+    @Then("user validates {string} error message under email field.")
+    public void user_validates_error_message_under_email_field(String expectedErrorMsg) {
+
+        String actualErrorMsg = magentoCreateAccountPage.emailErrorMsg.getText();
+        Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
+
+    }
+
 
 }
