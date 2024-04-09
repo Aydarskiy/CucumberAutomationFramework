@@ -55,6 +55,8 @@ public class MagentoCreateAccountSteps {
     }
 
 
+
+
     @Then("user validates contact information matches with given user name and email")
     public void user_validates_contact_information_matches_with_given_user_name_and_email() {
         String actualFullNameAndEmail = magentoMyAccountPage.FullNameHolder.getText();
