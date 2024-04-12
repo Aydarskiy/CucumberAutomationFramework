@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.MagentoCreateAccountPage;
 import pages.MagentoMainPage;
@@ -56,8 +55,6 @@ public class MagentoCreateAccountSteps {
     }
 
 
-
-
     @Then("user validates contact information matches with given user name and email")
     public void user_validates_contact_information_matches_with_given_user_name_and_email() {
         String actualFullNameAndEmail = magentoMyAccountPage.FullNameHolder.getText();
@@ -82,6 +79,7 @@ public class MagentoCreateAccountSteps {
         Thread.sleep(3000);
 
     }
+
     @Then("user validates {string} error message under first name field.")
     public void user_validates_error_message_under_first_name_field(String expectedErrorMsg) {
         String actualErrorMsg = magentoCreateAccountPage.firstNameErrorMsg.getText();
@@ -104,13 +102,13 @@ public class MagentoCreateAccountSteps {
         Thread.sleep(3000);
 
     }
+
     @Then("user validates {string} error message under last name field.")
     public void user_validates_error_message_under_last_name_field(String expectedErrorMsg) {
         String actualErrorMsg = magentoCreateAccountPage.lastNameErrorMsg.getText();
         Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
 
     }
-
 
 
     @When("user creates account with data and skips email field")
@@ -126,6 +124,7 @@ public class MagentoCreateAccountSteps {
         Thread.sleep(3000);
 
     }
+
     @Then("user validates {string} error message under email field.")
     public void user_validates_error_message_under_email_field(String expectedErrorMsg) {
 

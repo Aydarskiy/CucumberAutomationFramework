@@ -18,5 +18,12 @@ public class MagentoMainPage {
     @FindBy (xpath = "//a[contains(text(), 'Create an Account')]")
     public WebElement CreateAccountBtn;
 
+    @FindBy (xpath = " //a[contains(text(), 'Sign In')]")
+    public WebElement SignInBtn;
+
+
+
+
+
 
 }

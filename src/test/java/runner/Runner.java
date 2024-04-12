@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\features",
         glue = "steps",
         dryRun = false,   //dryRun = true -> only unimplemented steps run
-        tags = "@accountRegistration"
+        tags = "@TC-0006"
 )
 public class Runner {
 
