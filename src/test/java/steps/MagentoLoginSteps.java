@@ -17,8 +17,9 @@ public class MagentoLoginSteps {
 
     @When("user clicks on sign in button")
     public void user_clicks_on_sign_in_button() {
-      magentoMainPage.SignInBtn.click();
+        magentoMainPage.SignInBtn.click();
     }
+
     @When("user inputs valid user name and password")
     public void user_inputs_valid_user_name_and_password() {
         magentoLoginPage.emailInputField.sendKeys(ConfigReader.getProperty("magentoLoginEmail"));
@@ -34,5 +35,5 @@ public class MagentoLoginSteps {
     }
 
 
-    }
+}
 

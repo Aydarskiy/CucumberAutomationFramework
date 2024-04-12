@@ -19,22 +19,20 @@ public class MagentoProductSortBySteps {
     Actions actions = new Actions(Driver.getDriver());
 
 
-
     @When("user hovers over woman drop-down menu")
     public void user_hovers_over_woman_drop_down_menu() throws InterruptedException {
         actions.moveToElement(magentoHomePage.womenDropdown).perform();
 
 
-
-
-
     }
+
     @When("user hover over bottom menu")
     public void user_hover_over_bottom_menu() {
 
         actions.moveToElement(magentoHomePage.bottomsMenu).perform();
 
     }
+
     @When("user selects shorts")
     public void user_selects_shorts() {
 
@@ -51,21 +49,20 @@ public class MagentoProductSortBySteps {
     }
 
 
-
     @Then("user validates product prices are listed from low to high")
     public void user_validates_product_prices_are_listed_from_low_to_high() {
         WebDriver driver = Driver.getDriver();
 
-        List<WebElement>  itemPrices = driver.findElements(By.xpath("//ol[@class='products list items product-items']//span[@class='price']"));
+        List<WebElement> itemPrices = driver.findElements(By.xpath("//ol[@class='products list items product-items']//span[@class='price']"));
 
-        for(int i = 0; i<itemPrices.size()-1; i++){
+        for (int i = 0; i < itemPrices.size() - 1; i++) {
             double itemPrice1 = Double.parseDouble(itemPrices.get(i).getText().substring(1));
-            double itemPrice2 = Double.parseDouble(itemPrices.get(i+1).getText().substring(1));
-            Assert.assertTrue(itemPrice1<=itemPrice2);
+            double itemPrice2 = Double.parseDouble(itemPrices.get(i + 1).getText().substring(1));
+            Assert.assertTrue(itemPrice1 <= itemPrice2);
 
 
         }
-        }
-
     }
+
+}
 
