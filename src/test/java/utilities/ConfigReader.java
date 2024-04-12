@@ -18,7 +18,7 @@ public class ConfigReader {
     private static Properties properties;
 
     static {
-        String path = "C:\\Users\\aydar\\IdeaProjects\\CucumberAutomationFramework\\src\\test\\resources\\configurations\\Configuration.properties";
+        String path = "\\src\\test\\resources\\configurations\\Configuration.properties";
 
         try {
             input = new FileInputStream(path);
