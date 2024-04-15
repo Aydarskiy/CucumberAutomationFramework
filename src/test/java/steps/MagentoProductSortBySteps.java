@@ -3,8 +3,6 @@ package steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -20,7 +18,7 @@ public class MagentoProductSortBySteps {
 
 
     @When("user hovers over woman drop-down menu")
-    public void user_hovers_over_woman_drop_down_menu() throws InterruptedException {
+    public void user_hovers_over_woman_drop_down_menu() {
         actions.moveToElement(magentoHomePage.womenDropdown).perform();
 
 
@@ -51,7 +49,7 @@ public class MagentoProductSortBySteps {
 
     @Then("user validates product prices are listed from low to high")
     public void user_validates_product_prices_are_listed_from_low_to_high() {
-        WebDriver driver = Driver.getDriver();
+
 
         List<WebElement> itemPrices = magentoHomePage.priceHolder;
 
