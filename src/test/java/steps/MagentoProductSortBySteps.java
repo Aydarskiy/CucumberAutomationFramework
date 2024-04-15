@@ -53,7 +53,7 @@ public class MagentoProductSortBySteps {
     public void user_validates_product_prices_are_listed_from_low_to_high() {
         WebDriver driver = Driver.getDriver();
 
-        List<WebElement> itemPrices = driver.findElements(By.xpath("//ol[@class='products list items product-items']//span[@class='price']"));
+        List<WebElement> itemPrices = magentoHomePage.priceHolder;
 
         for (int i = 0; i < itemPrices.size() - 1; i++) {
             double itemPrice1 = Double.parseDouble(itemPrices.get(i).getText().substring(1));

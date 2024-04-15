@@ -13,7 +13,7 @@ public class MagentoSearchProductSteps {
     MagentoMainPage magentoMainPage = new MagentoMainPage();
     MagentoSearchResultPage magentoSearchResultPage = new MagentoSearchResultPage();
     @When("user searches fri keyword {string}")
-    public void user_searches_fri_keyword(String searchedProduct) throws InterruptedException {
+    public void user_searches_fri_keyword(String searchedProduct) {
         magentoMainPage.searchField.sendKeys(searchedProduct + Keys.ENTER);
     }
 
@@ -22,13 +22,13 @@ public class MagentoSearchProductSteps {
         List<String> keyWords = dataTable.asList();
         for (WebElement item : magentoSearchResultPage.productItemNameHolder) {
             String itemDescription = item.getText();
-            Boolean isFound = false;
+            boolean isFound = false;
             String wordNotFound = "";
-            for (int i = 0; i < keyWords.size(); i++) {
-                if (itemDescription.toLowerCase().contains(keyWords.get(i))) {
+            for (String keyWord : keyWords) {
+                if (itemDescription.toLowerCase().contains(keyWord)) {
                     isFound = true;
                 } else {
-                    wordNotFound = keyWords.get(i);
+                    wordNotFound = keyWord;
                 }
             }
             Assert.assertTrue("[" + itemDescription + "] does not contain keyword: [" + wordNotFound + "]", isFound);
