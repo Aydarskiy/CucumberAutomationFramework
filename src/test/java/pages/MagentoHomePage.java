@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class MagentoHomePage {
 
     WebDriver driver;
@@ -33,7 +35,7 @@ public class MagentoHomePage {
     public WebElement sortByDropdown;
 
     @FindBy (xpath = "//ol[@class='products list items product-items']//span[@class='price']")
-    public WebElement priceHolder;
+    public List<WebElement> priceHolder;
 
 
 

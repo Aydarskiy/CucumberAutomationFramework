@@ -22,6 +22,9 @@ public class MagentoMainPage {
     public WebElement SignInBtn;
 
 
+    @FindBy (id = "search")
+    public WebElement searchField;
+
 
 
 
