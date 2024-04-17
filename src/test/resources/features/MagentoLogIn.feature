@@ -1,4 +1,4 @@
-@login @magento @smoke @regression @ui
+@magento @regression @smoke @ui @login
   Feature: Magento account login
 
     @TC-0005

@@ -1,4 +1,4 @@
-@productSortBy @magento @smoke @regression @ui
+@magento @regression @smoke @ui @productSortBy
   Feature: Sorting products
 
     @sortByPriceLowHigh

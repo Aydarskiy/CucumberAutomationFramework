@@ -1,4 +1,4 @@
-@magento @smoke @regression @ui @magentoSearch
+@magento @regression @smoke @ui @magentoSearch
 Feature: Magento search functionality
 
   @TC-0007

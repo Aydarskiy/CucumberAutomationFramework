@@ -1,4 +1,4 @@
-@accountRegistration @magento @smoke @regression @ui
+@magento @regression @smoke @ui @accountRegistration
 Feature: Account registration functionality
 
   Background:
