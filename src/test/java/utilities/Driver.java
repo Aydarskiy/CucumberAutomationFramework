@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -28,8 +29,10 @@ public class Driver {
         String browser = ConfigReader.getProperty("browser");
         if(driver == null || ((RemoteWebDriver)driver).getSessionId() == null) {
             if (browser.equals("chrome")) {
+                ChromeOptions options =new ChromeOptions();
+                options.addArguments("--headless");
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             } else if (browser.equals("edge")) {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
