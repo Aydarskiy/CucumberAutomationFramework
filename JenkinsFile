@@ -10,10 +10,12 @@ pipeline {
             }
         }
 
+
         stage('Build and Test') {
             steps {
-                withMaven(maven: 'maven_3_9_6')
-                    sh 'mvn clean test'
+                script {
+                    // Assuming you have Maven installed and accessible in your PATH
+                    bat 'mvn clean test'
                 }
             }
         }
