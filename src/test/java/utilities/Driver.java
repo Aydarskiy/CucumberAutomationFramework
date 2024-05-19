@@ -29,10 +29,8 @@ public class Driver {
         String browser = ConfigReader.getProperty("browser");
         if(driver == null || ((RemoteWebDriver)driver).getSessionId() == null) {
             if (browser.equals("chrome")) {
-                ChromeOptions options =new ChromeOptions();
-                options.addArguments("--headless");
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver(options);
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\aydar\\IdeaProjects\\CucumberAutomationFramework\\src\\test\\resources\\webdrivers\\chromedriver.exe");
+                driver = new ChromeDriver();
             } else if (browser.equals("edge")) {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
