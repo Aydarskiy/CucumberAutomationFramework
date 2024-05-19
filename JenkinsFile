@@ -12,9 +12,8 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                script {
-                    // Using the Maven wrapper if available, or falling back to mvn
-                    sh './mvnw clean test || mvn clean test'
+                withMaven(maven: 'maven_3_9_6')
+                    sh 'mvn clean test'
                 }
             }
         }
