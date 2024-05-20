@@ -27,26 +27,21 @@ pipeline {
                 script {
                     // Generate Cucumber report using Cucumber Reports Plugin if installed
                     cucumber buildStatus: 'UNSTABLE',
-                             reportTitle: 'Cucumber Report',
-                             fileIncludePattern: 'target/cucumber-reports/*.json',
-                             trendsLimit: 10,
-                             sortingMethod: 'ALPHABETICAL'
+                                           reportTitle: 'My report',
+                                           fileIncludePattern: '**/*.json',
+                                           trendsLimit: 10,
+                                           classifications: [
+                                               [
+                                                   'key': 'Browser',
+                                                   'value': 'Chrome'
+                                               ]
+                                           ]
                 }
             }
         }
 
-         stage('Generate HTML report') {
-                cucumber buildStatus: 'UNSTABLE',
-                        reportTitle: 'My report',
-                        fileIncludePattern: '**/*.json',
-                        trendsLimit: 10,
-                        classifications: [
-                            [
-                                'key': 'Browser',
-                                'value': 'Chrome'
-                            ]
-                        ]
-            }
+
+
     }
 
     post {
