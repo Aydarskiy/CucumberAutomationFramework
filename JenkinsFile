@@ -59,10 +59,7 @@ pipeline {
                               attachmentsPattern: 'target/cucumber-reports/*.json',
                               to: 'aydarzarif@gmail.com'
                 }
-        always {
-            archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
-            junit 'target/surefire-reports/*.xml'
-        }
+
     }
 }
 
