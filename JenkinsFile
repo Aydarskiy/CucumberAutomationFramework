@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Assuming you have Maven installed and accessible in your PATH
-                    bat 'mvn verify -DskipTests'
+                    bat 'mvn clean test'
                 }
             }
         }
