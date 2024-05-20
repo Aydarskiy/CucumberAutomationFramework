@@ -22,23 +22,19 @@ pipeline {
 
 
 
-        stage('Generate Reports') {
-            steps {
-                script {
-                    // Generate Cucumber report using Cucumber Reports Plugin if installed
-                    cucumber buildStatus: 'UNSTABLE',
-                                           reportTitle: 'My report',
-                                           fileIncludePattern: '**/*.html',
-                                           trendsLimit: 10,
-                                           classifications: [
-                                               [
-                                                   'key': 'Browser',
-                                                   'value': 'Chrome'
-                                               ]
-                                           ]
-                }
-            }
-        }
+      stage('Generate HTML report') {
+              cucumber buildStatus: 'UNSTABLE',
+                      reportTitle: 'My report',
+                      fileIncludePattern: '**/*.html',
+                      trendsLimit: 10,
+                      classifications: [
+                          [
+                              'key': 'Browser',
+                              'value': 'Chrome'
+                          ]
+                      ]
+          }
+
 
 
 
