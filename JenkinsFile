@@ -46,7 +46,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/cucumber-reports/*.html', allowEmptyArchive: true
             junit 'target/surefire-reports/*.xml'
         }
     }
