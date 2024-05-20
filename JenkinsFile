@@ -26,7 +26,7 @@ pipeline {
                     // Generate Cucumber report using Cucumber Reports Plugin if installed
                     cucumber buildStatus: 'UNSTABLE',
                              reportTitle: 'Cucumber Report',
-                             fileIncludePattern: 'target/cucumber-reports/*.html',
+                             fileIncludePattern: 'target/cucumber-reports/*.json',
                              trendsLimit: 10,
                              sortingMethod: 'ALPHABETICAL'
                 }
@@ -36,7 +36,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'target/cucumber-reports/*.html', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
             junit 'target/surefire-reports/*.xml'
         }
     }
