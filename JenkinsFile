@@ -49,14 +49,14 @@ pipeline {
                     // Send email notification on success
                     emailext subject: 'Cucumber Report - Build Success',
                               body: 'Attached is the Cucumber report generated during the build.',
-                              attachmentsPattern: 'target/cucumber-reports/*.json',
+                              attachmentsPattern: 'target/cucumber-reports/*.html',
                               to: 'aydarzarif@gmail.com'
                 }
                 failure {
                     // Send email notification on failure
                     emailext subject: 'Cucumber Report - Build Failure',
                               body: 'The build failed. Please find attached the Cucumber report for troubleshooting.',
-                              attachmentsPattern: 'target/cucumber-reports/*.json',
+                              attachmentsPattern: 'target/cucumber-reports/*.html',
                               to: 'aydarzarif@gmail.com'
                 }
 
