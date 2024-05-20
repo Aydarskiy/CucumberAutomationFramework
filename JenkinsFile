@@ -28,7 +28,7 @@ pipeline {
                     // Generate Cucumber report using Cucumber Reports Plugin if installed
                     cucumber buildStatus: 'UNSTABLE',
                                            reportTitle: 'My report',
-                                           fileIncludePattern: '**/*.json',
+                                           fileIncludePattern: '**/*.html',
                                            trendsLimit: 10,
                                            classifications: [
                                                [
