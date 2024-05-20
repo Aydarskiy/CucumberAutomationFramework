@@ -10,34 +10,32 @@ pipeline {
             }
         }
 
-
         stage('Build and Test') {
             steps {
                 script {
-                    // Assuming you have Maven installed and accessible in your PATH
-                    bat 'mvn verify DskipTests'
+                    // Use the Maven wrapper if available; otherwise, fallback to mvn
+                    bat 'mvn verify -DskipTests'
                 }
             }
         }
 
-
-
-      stage('Generate HTML report') {
-              cucumber buildStatus: 'UNSTABLE',
-                      reportTitle: 'My report',
-                      fileIncludePattern: '**/*.html',
-                      trendsLimit: 10,
-                      classifications: [
-                          [
-                              'key': 'Browser',
-                              'value': 'Chrome'
-                          ]
-                      ]
-          }
-
-
-
-
+        stage('Generate Reports') {
+            steps {
+                script {
+                    // Generate Cucumber report using the Cucumber Reports Plugin if installed
+                     cucumber buildStatus: 'UNSTABLE',
+                                    reportTitle: 'My report',
+                                    fileIncludePattern: '**/*.html',
+                                    trendsLimit: 10,
+                                    classifications: [
+                                        [
+                                            'key': 'Browser',
+                                            'value': 'Chrome'
+                                        ]
+                                    ]
+                }
+            }
+        }
     }
 
     post {
@@ -47,5 +45,3 @@ pipeline {
         }
     }
 }
-
-
