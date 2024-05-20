@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Assuming you have Maven installed and accessible in your PATH
-                    bat 'mvn verify -DskipTests'
+                    bat 'mvn clean test'
                 }
             }
         }
@@ -45,9 +45,25 @@ pipeline {
     }
 
     post {
+         success {
+                    // Send email notification on success
+                    emailext subject: 'Cucumber Report - Build Success',
+                              body: 'Attached is the Cucumber report generated during the build.',
+                              attachmentsPattern: 'target/cucumber-reports/*.json',
+                              to: 'your.email@example.com'
+                }
+                failure {
+                    // Send email notification on failure
+                    emailext subject: 'Cucumber Report - Build Failure',
+                              body: 'The build failed. Please find attached the Cucumber report for troubleshooting.',
+                              attachmentsPattern: 'target/cucumber-reports/*.json',
+                              to: 'your.email@example.com'
+                }
         always {
             archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
             junit 'target/surefire-reports/*.xml'
         }
     }
 }
+
+
