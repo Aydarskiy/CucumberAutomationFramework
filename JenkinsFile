@@ -38,10 +38,10 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
-            junit 'target/surefire-reports/*.xml'
-        }
-    }
+  //  post {
+  //      always {
+  //          archiveArtifacts artifacts: 'target/cucumber-reports/*.json', allowEmptyArchive: true
+  //          junit 'target/surefire-reports/*.xml'
+  //      }
+  //  }
 }
