@@ -35,6 +35,7 @@ public class BrowserUtils {
     public static void selectOptionByValue(WebElement target, String value) {
         Select select = new Select(target);
         select.selectByVisibleText(value);
+
     }
 
 
