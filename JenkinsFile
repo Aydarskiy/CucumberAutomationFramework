@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Use the Maven wrapper if available; otherwise, fallback to mvn
-                     sh 'cat Aydar.txt'
+                 //    sh 'cat Aydar.txt'
 		             bat 'mvn verify -DskipTests'
 
                 }
