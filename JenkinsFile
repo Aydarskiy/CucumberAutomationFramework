@@ -22,16 +22,7 @@ pipeline {
                     }
                 }
 
-        stage('Verify') {
-            steps {
-                script {
-                    // Use the Maven wrapper if available; otherwise, fallback to mvn
 
-		             bat 'mvn verify -DskipTests'
-
-                }
-            }
-        }
 
 
         stage('Generate Reports') {
