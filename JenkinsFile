@@ -10,16 +10,29 @@ pipeline {
             }
         }
 
+
+         stage('Build and Test') {
+                    steps {
+                        script {
+                            // Use the Maven wrapper if available; otherwise, fallback to mvn
+
+        		             bat 'mvn clean test'
+
+                        }
+                    }
+                }
+
         stage('Build and Test') {
             steps {
                 script {
                     // Use the Maven wrapper if available; otherwise, fallback to mvn
-                 //    sh 'cat Aydar.txt'
+             
 		             bat 'mvn verify -DskipTests'
 
                 }
             }
         }
+
 
         stage('Generate Reports') {
             steps {
