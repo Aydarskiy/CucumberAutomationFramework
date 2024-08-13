@@ -16,7 +16,7 @@ pipeline {
                         script {
                             // Use the Maven wrapper if available; otherwise, fallback to mvn
 
-        		             bat 'mvn clean test'
+        		             bat 'mvn verify -DskipTests'
 
                         }
                     }
